@@ -1,19 +1,344 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <style>
+        body {
+            background-color: gray;
+        }
+
+        .Background.Rectangle {
+
+            /* Backlines Rectangle */
 
 
+            position: absolute;
+            width: 471px;
+            height: 202px;
+            left: 63px;
+            top: 62px;
+
+            background: #000000;
+            border: 2px solid #000000;
+        }
+
+        .Background.Line {
+            position: absolute;
+            width: 474px;
+            height: 0px;
+            left: 62px;
+            top: 164px;
+
+            border: 2px solid #000000;
+        }
+
+        .ShotsOnGoal {
+            /* SOG Text */
+
+
+            position: absolute;
+            width: 81px;
+            height: 37px;
+            left: 441px;
+            top: 113px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 54px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Team1.Background {
+            /* Team 1 Background */
+
+
+            position: absolute;
+            width: 471px;
+            height: 100px;
+            left: 63px;
+            top: 62px;
+
+            background: #182857;
+        }
+
+        .Team2.Background {
+            /* Team 2 Background */
+
+
+            position: absolute;
+            width: 471px;
+            height: 100px;
+            left: 63px;
+            top: 164px;
+
+            background: #D5160C;
+        }
+
+        .Team1.Logo {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            left: 73px;
+            top: 72px;
+
+            background: url(Wildcat_Hockey_Blue.png);
+        }
+
+        .Team1.Name {
+
+            /* Team 1 Name */
+
+
+            position: absolute;
+            width: 140px;
+            height: 96px;
+            left: 167px;
+            top: 0px;
+            /* -64 on the top idk */
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Team1.Score {
+
+            /* Team 1 Score */
+
+
+            position: absolute;
+            width: 107px;
+            height: 96px;
+            left: 320px;
+            top: -3px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Team1.SOG {
+            /* Team 1 SOG */
+
+
+            position: absolute;
+            width: 58px;
+            height: 37px;
+            left: 453px;
+            top: 55px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 54px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+        }
+
+
+        .Team2.Logo {
+            /* Team 2 Logo */
+
+
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            left: 73px;
+            top: 174px;
+
+            background: url(Davenport_Panthers_logo.png)
+        }
+
+        .Team2.Name {
+            /* Team 2 Name */
+
+
+            position: absolute;
+            width: 140px;
+            height: 96px;
+            left: 167px;
+            top: 102px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Team2.Score {
+            position: absolute;
+            width: 107px;
+            height: 96px;
+            left: 320px;
+            top: 100px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+
+        }
+
+        .Team2.SOG {
+            position: absolute;
+            width: 58px;
+            height: 37px;
+            left: 453px;
+            top: 163px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 54px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Team1PP.Background {
+            /* Team 1 Powerplay */
+
+
+            position: absolute;
+            width: 213px;
+            height: 37px;
+            left: 321px;
+            top: 27px;
+
+        }
+
+        .Team1PP.Text {
+            /* Team 1 PP/TO Text */
+
+
+            position: absolute;
+            width: 161px;
+            height: 37px;
+            left: 327px;
+            top: 27px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+
+            color: #FFFFFF;
+
+
+        }
+
+        .Team1PP.Time {
+            /* Team 1 Time */
+
+
+            position: absolute;
+            width: 64px;
+            height: 37px;
+            left: 465px;
+            top: 27px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 33px;
+            display: flex;
+            align-items: center;
+            text-align: right;
+
+            color: #FFFFFF;
+
+        }
     </style>
 </head>
-<body>
+
+
+<div class="Background Rectangle"></div>
+<div class="Background Line"></div>
+<div class="Team1 Background"></div>
+<div class="Team2 Background"></div>
+<p class="ShotsOnGoal">SOG</p>
+
+<!-- Team 1 Info-->
+<img class="Team1 Logo" alt="Team 1 Logo">
+<p class="Team1 Name">AZ</p>
+<p class="Team1 Score">7</p>
+<p class="Team1 SOG">13</p>
+
+<!--Team 1 PP/TO-->
+<div class="Team1PP Background"></div>
+<p class="Team1PP Text">POWER PLAY</p>
+<p class="Team1PP Time">0:13</p>
+
+
+<!--Team 2 Info-->
+<img class="Team2 Logo" alt="Team 2 Logo">
+<p class="Team2 Name">AZ</p>
+<p class="Team2 Score">7</p>
+<p class="Team2 SOG">13</p>
 
 
 
 
 
 
-</body>
 
 
 
@@ -26,7 +351,7 @@
 
 
 
-    
+
 </script>
 
 
