@@ -2,7 +2,10 @@
 <html>
 
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: gray;
@@ -15,22 +18,22 @@
 
             position: absolute;
             width: 471px;
-            height: 202px;
-            left: 63px;
-            top: 62px;
-
-            background: #000000;
+            height: 154px;
+            left: 62px;
+            top: 54px;
+            background: #ece8e8;
             border: 2px solid #000000;
         }
 
         .Background.Line {
             position: absolute;
-            width: 474px;
+            width: 471px;
             height: 0px;
             left: 62px;
-            top: 164px;
+            top: 129.76px;
 
-            border: 2px solid #000000;
+            border: 1px solid #000000;
+            z-index: 2;
         }
 
         .ShotsOnGoal {
@@ -39,9 +42,9 @@
 
             position: absolute;
             width: 81px;
-            height: 37px;
-            left: 441px;
-            top: 113px;
+            height: 28px;
+            left: 440px;
+            top: 81px;
 
             font-family: 'Poppins';
             font-style: normal;
@@ -53,6 +56,7 @@
             text-align: center;
 
             color: #FFFFFF;
+            z-index: 3;
 
         }
 
@@ -62,11 +66,93 @@
 
             position: absolute;
             width: 471px;
-            height: 100px;
+            height: 76px;
             left: 63px;
-            top: 62px;
+            top: 54px;
 
             background: #182857;
+        }
+
+
+
+        .Team1.Logo {
+            position: absolute;
+            width: 80px;
+            height: 60.88px;
+            left: 10px;
+            top: 7.25px;
+
+            background: url(Wildcat_Hockey_Blue.png);
+        }
+
+        .Name {
+
+            /* Team 1 Name */
+
+
+            position: absolute;
+            width: 140px;
+            height: 76px;
+            left: 104px;
+            bottom: -55px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .Score {
+
+            /* Team 1 Score */
+
+
+            position: absolute;
+            width: 107px;
+            height: 76px;
+            left: 257px;
+            bottom: -55px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 64px;
+            line-height: 96px;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
+
+        .SOG {
+            /* Team 1 SOG */
+
+
+            position: absolute;
+            width: 107px;
+            height: 75px;
+            left: 364px;
+            top: -13px;
+
+            padding: auto;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 36px;
+            align-items: center;
+            text-align: center;
+
+
+            color: #FFFFFF;
+
         }
 
         .Team2.Background {
@@ -75,98 +161,12 @@
 
             position: absolute;
             width: 471px;
-            height: 100px;
+            height: 76px;
             left: 63px;
-            top: 164px;
+            top: 131px;
 
             background: #D5160C;
         }
-
-        .Team1.Logo {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            left: 73px;
-            top: 72px;
-
-            background: url(Wildcat_Hockey_Blue.png);
-        }
-
-        .Team1.Name {
-
-            /* Team 1 Name */
-
-
-            position: absolute;
-            width: 140px;
-            height: 96px;
-            left: 167px;
-            top: 0px;
-            /* -64 on the top idk */
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 64px;
-            line-height: 96px;
-            /* identical to box height */
-
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-
-        }
-
-        .Team1.Score {
-
-            /* Team 1 Score */
-
-
-            position: absolute;
-            width: 107px;
-            height: 96px;
-            left: 320px;
-            top: -3px;
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 64px;
-            line-height: 96px;
-            /* identical to box height */
-
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-
-        }
-
-        .Team1.SOG {
-            /* Team 1 SOG */
-
-
-            position: absolute;
-            width: 58px;
-            height: 37px;
-            left: 453px;
-            top: 55px;
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 36px;
-            line-height: 54px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-        }
-
 
         .Team2.Logo {
             /* Team 2 Logo */
@@ -174,79 +174,11 @@
 
             position: absolute;
             width: 80px;
-            height: 80px;
-            left: 73px;
-            top: 174px;
+            height: 60.88px;
+            left: 10px;
+            top: 7.25px;
 
-            background: url(Davenport_Panthers_logo.png)
-        }
-
-        .Team2.Name {
-            /* Team 2 Name */
-
-
-            position: absolute;
-            width: 140px;
-            height: 96px;
-            left: 167px;
-            top: 102px;
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 64px;
-            line-height: 96px;
-            /* identical to box height */
-
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-
-        }
-
-        .Team2.Score {
-            position: absolute;
-            width: 107px;
-            height: 96px;
-            left: 320px;
-            top: 100px;
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 64px;
-            line-height: 96px;
-            /* identical to box height */
-
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-
-
-        }
-
-        .Team2.SOG {
-            position: absolute;
-            width: 58px;
-            height: 37px;
-            left: 453px;
-            top: 163px;
-
-            font-family: 'Poppins';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 36px;
-            line-height: 54px;
-            display: flex;
-            align-items: center;
-            text-align: center;
-
-            color: #FFFFFF;
-
+            background: url(Davenport_Panthers_logo.png);
         }
 
         .Team1PP.Background {
@@ -255,9 +187,12 @@
 
             position: absolute;
             width: 213px;
-            height: 37px;
+            height: 22px;
             left: 321px;
-            top: 27px;
+            top: 30px;
+
+            background: #182857;
+            border: 2px solid #000000;
 
         }
 
@@ -306,33 +241,69 @@
             color: #FFFFFF;
 
         }
+
+        .TeamGradient {
+            position: absolute;
+            width: 471px;
+            height: 76px;
+
+            background: linear-gradient(89.94deg, rgba(0, 0, 0, 0.51) 0.06%, rgba(0, 0, 0, 0) 99.95%);
+        }
+
+        .SecondGradient {
+            position: absolute;
+            width: 214px;
+            height: 76px;
+            left: 257px;
+
+            background: rgba(0, 0, 0, 0.42);
+        }
+
+        .ThirdGradient {
+            position: absolute;
+            width: 107px;
+            height: 76px;
+            left: 364px;
+
+            background: rgba(0, 0, 0, 0.42);
+        }
     </style>
 </head>
 
 
 <div class="Background Rectangle"></div>
 <div class="Background Line"></div>
-<div class="Team1 Background"></div>
+
 <div class="Team2 Background"></div>
 <p class="ShotsOnGoal">SOG</p>
 
-<!-- Team 1 Info-->
-<img class="Team1 Logo" alt="Team 1 Logo">
-<p class="Team1 Name">AZ</p>
-<p class="Team1 Score">7</p>
-<p class="Team1 SOG">13</p>
+<!-- Team 1 Info-->\
+<div class="Team1 Background">
+    <div class="TeamGradient"></div>
+    <div class="SecondGradient"></div>
+    <div class="ThirdGradient"></div>
+    <img class="Team1 Logo" src="Wildcat_Hockey_Blue.png" alt="Team 1 Logo">
+    <p class="Name">AZ</p>
+    <p class="Score">7</p>
+    <p class="SOG">13</p>
+</div>
 
 <!--Team 1 PP/TO-->
 <div class="Team1PP Background"></div>
-<p class="Team1PP Text">POWER PLAY</p>
-<p class="Team1PP Time">0:13</p>
+<p class="Team1PP Text"></p>
+<p class="Team1PP Time"></p>
 
 
 <!--Team 2 Info-->
-<img class="Team2 Logo" alt="Team 2 Logo">
-<p class="Team2 Name">AZ</p>
-<p class="Team2 Score">7</p>
-<p class="Team2 SOG">13</p>
+<div class="Team2 Background">
+    <div class="TeamGradient"></div>
+    <div class="SecondGradient"></div>
+    <div class="ThirdGradient"></div>
+    <img class="Team2 Logo" alt="Team 2 Logo">
+    <p class="Name">AZ</p>
+    <p class="Score">7</p>
+    <p class="SOG">13</p>
+</div>
 
 
 
