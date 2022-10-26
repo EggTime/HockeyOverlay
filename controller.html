@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+
+</head>
+<style>
+    body,
+    html {
+        background-color: rgb(34, 34, 34);
+        margin-top: 0%;
+        margin-bottom: 0%;
+        margin-right: 10%;
+        margin-left: 10%;
+        color: white;
+        font-family: 'Roboto';
+        font-style: normal;
+    }
+
+
+    .segment {
+        padding: 16px*2 0;
+        text-align: center;
+    }
+
+    .title {
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 27px;
+        line-height: 50%;
+
+        letter-spacing: 0.5px;
+
+        color: #FFFFFF;
+        width: 200px
+    }
+
+    .title.sub {
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 50%;
+        /* or 150% */
+
+        letter-spacing: 0.5px;
+
+        color: #909090;
+
+    }
+
+    button {
+
+        display: inline-block;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        border-radius: 8px;
+        padding: 14px 24px 16px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 1;
+        transition: transform 200ms, background 200ms;
+        background: rgb(54, 54, 54);
+        color: #000000;
+        box-shadow: 0 0 0 3px #000000 inset;
+        overflow: hidden;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+    }
+
+    .button:active {
+        background-color: #4d4d4d;
+        transform: translateY(2px);
+    }
+
+
+    input[type=text] {
+
+        border: 3px solid #000;
+        border-radius: 5px;
+        height: 50px;
+        line-height: normal;
+        color: #ffffff;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        user-select: auto;
+        font-size: 16px;
+        padding: 0 6px;
+        padding-left: 12px;
+        width: 200px;
+        background: rgb(54, 54, 54);
+
+
+    }
+
+    input[type=number] {
+
+        border: 3px solid #000;
+        border-radius: 5px;
+        height: 50px;
+        line-height: normal;
+        color: #ffffff;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        user-select: auto;
+        font-size: 16px;
+        padding: 0 6px;
+        padding-left: 12px;
+        width: 80px;
+        background: rgb(54, 54, 54);
+
+
+    }
+    input:focus {
+        border: 3px solid #5551ff;
+    }
+</style>
+
+<body>
+    <div class="title">
+        <h1>Menu</h1>
+        <p class="title sub">Hockey Control Panel</p>
+    </div>
+
+    <div class="team1" id="team1">
+        <label for="team1">Team 1</label>
+        <input type="text" class="input" id="team1" value="AZ" placeholder="Team 1 Initials">
+    </div>
+    <div class="team2" id="tlayer2">
+        <label for="team2">Team 2</label>
+        <input type="text" class="input" id="team2" placeholder="Team 2 Initials">
+    </div>
+    <br>
+
+
+    <br>
+    <br>
+    <label for="chkBoxHard">Things </label>
+        <input type="checkbox" id="chkBoxHard" onclick="ShowHideDivHard(this)" />
+   
+
+    <br>
+
+    <br>
+    <label for="team1Score">Team 1 Score</label>
+    <input type="number" class="input" id="team1Score" value="0" min="0" max="99" step="1">
+    <br>
+    <label for="team2Score">Team 1 Score</label>
+    <input type="number" class="input" id="team2Score" value="0" min="0" max="99" step="1"><br>
+    <button id="GetPlayers">Get Players</button>
+
+    Round Info: <input type="text" class="input long" id="roundInfo" value="Season 8 Div. # Round #"><br><br>
+
+    Map Pool: <select id="mapPoolID" onchange="mapPoolUpdate()">
+        <option value="357">Testing pool 357</option>
+    </select><br>
+    <br> <br>
+    <button class="button" id="SendButton">Send Data</button>
+    <button class="button" id="SendStatsButton">Send Data + Get Stats</button>
+    <span id="team1Selection"></span>
+    <span id="team2Selection"></span>
+    <span id="bestofSelection"></span>
+    <span id="mapPoolSelection">357</span>
+    <div class="pickbanText" style="display:none;">
+        <span id="displayedMapsSelection"></span>
+        <span id="map0Selection"></span>
+        <span id="map1Selection"></span>
+        <span id="map2Selection"></span>
+        <span id="map3Selection"></span>
+        <span id="map4Selection"></span>
+        <span id="map5Selection"></span>
+        <span id="map6Selection"></span>
+        <span id="map7Selection"></span>
+        <span id="map8Selection"></span>
+    </div></br>
+
+
+    </div>
+</body>
+
+
+
+</html>
