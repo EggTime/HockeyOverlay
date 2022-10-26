@@ -3,7 +3,7 @@
 
 <head>
 
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
 
 </head>
@@ -88,10 +88,10 @@
         border: 3px solid #000;
         border-radius: 5px;
         height: 50px;
+        width: 20%;
         line-height: normal;
         color: #ffffff;
         display: block;
-        width: 100%;
         box-sizing: border-box;
         user-select: auto;
         font-size: 16px;
@@ -111,7 +111,7 @@
         line-height: normal;
         color: #ffffff;
         display: block;
-        width: 100%;
+        width: 30px;
         box-sizing: border-box;
         user-select: auto;
         font-size: 16px;
@@ -122,8 +122,82 @@
 
 
     }
+
+    input[type=color] {
+
+        border: 3px solid #000;
+        border-radius: 5px;
+        height: 50px;
+        line-height: normal;
+        color: #ffffff;
+        display: block;
+        width: 30px;
+        box-sizing: border-box;
+        user-select: auto;
+        font-size: 16px;
+        padding: 0 6px;
+        padding-left: 6px;
+        width: 80px;
+        background: rgb(54, 54, 54);
+
+
+
+    }
+
     input:focus {
         border: 3px solid #5551ff;
+    }
+
+    select,
+    option {
+
+        border: 3px solid #000;
+        border-radius: 5px;
+        height: 50px;
+        line-height: normal;
+        color: #ffffff;
+        display: block;
+        box-sizing: border-box;
+        user-select: auto;
+        font-size: 16px;
+        padding: 0 6px;
+        padding-left: 12px;
+        background: rgb(54, 54, 54);
+
+
+    }
+
+    select:focus {
+        border: 3px solid #5551ff;
+    }
+
+    .flex-container {
+        display: flex;
+        padding-bottom: 5px;
+    }
+
+    .flex-big-container {
+        display: flex;
+    }
+
+    /* .flex-child {
+    flex: min-content;
+    border: 2px solid rgb(255, 255, 255); 
+    
+}  
+*/
+    .flex-child:first-child {
+        margin-right: 30px;
+    }
+
+    .flex-child:second-child {
+        margin-right: 30px;
+        flex-shrink: 2;
+    }
+
+    .smaller {
+        margin-right: 30px !important;
+
     }
 </style>
 
@@ -133,62 +207,200 @@
         <p class="title sub">Hockey Control Panel</p>
     </div>
 
-    <div class="team1" id="team1">
-        <label for="team1">Team 1</label>
-        <input type="text" class="input" id="team1" value="AZ" placeholder="Team 1 Initials">
+    <div class="flex-container">
+        <div class="team1 smaller" id="team1">
+            <label for="team1">Team 1</label>
+            <input type="text" class="input" id="team1Name" value="AZ" maxlength="3" placeholder="Team 1 Initials">
+        </div>
+        <div class="smaller">
+            <label for="team1Score">Team 1 Score</label>
+            <input type="number" class="input" id="team1Score" value="0" min="0" max="99" step="1">
+        </div>
+        <div class="smaller">
+            <label for="team1Score">Shots on Goal </label>
+            <input type="number" class="input" id="team1SOG" value="0" min="0" max="999" step="1">
+        </div>
+        <div class="smaller">
+            <label for="team1Score">Team 1 Color</label>
+            <input type="color" value="#182857" id="team1Color" />
+        </div>
     </div>
-    <div class="team2" id="tlayer2">
-        <label for="team2">Team 2</label>
-        <input type="text" class="input" id="team2" placeholder="Team 2 Initials">
+    <br>
+    <div class="flex-container">
+        <div class="team2 smaller" id="team2">
+            <label for="team2">Team 2</label>
+            <input type="text" class="input" id="team2Name" maxlength="3" placeholder="Team 2 Initials" value="XXX">
+        </div>
+        <div class="smaller">
+            <label for="team1Score">Team 1 Score</label>
+            <input type="number" class="input" id="team2Score" value="0" min="0" max="99" step="1">
+        </div>
+        <div class="smaller">
+            <label for="team2SOG">Shots on Goal </label>
+            <input type="number" class="input" id="team2SOG" value="0" min="0" max="999" step="1">
+        </div>
+        <div class="smaller">
+            <label for="team1Score">Team 2 Color</label>
+            <input type="color" value="#D5160C" id="team2Color" />
+        </div>
     </div>
     <br>
 
 
-    <br>
-    <br>
-    <label for="chkBoxHard">Things </label>
-        <input type="checkbox" id="chkBoxHard" onclick="ShowHideDivHard(this)" />
-   
 
-    <br>
-
-    <br>
-    <label for="team1Score">Team 1 Score</label>
-    <input type="number" class="input" id="team1Score" value="0" min="0" max="99" step="1">
-    <br>
-    <label for="team2Score">Team 1 Score</label>
-    <input type="number" class="input" id="team2Score" value="0" min="0" max="99" step="1"><br>
-    <button id="GetPlayers">Get Players</button>
-
-    Round Info: <input type="text" class="input long" id="roundInfo" value="Season 8 Div. # Round #"><br><br>
-
-    Map Pool: <select id="mapPoolID" onchange="mapPoolUpdate()">
-        <option value="357">Testing pool 357</option>
-    </select><br>
-    <br> <br>
-    <button class="button" id="SendButton">Send Data</button>
-    <button class="button" id="SendStatsButton">Send Data + Get Stats</button>
-    <span id="team1Selection"></span>
-    <span id="team2Selection"></span>
-    <span id="bestofSelection"></span>
-    <span id="mapPoolSelection">357</span>
-    <div class="pickbanText" style="display:none;">
-        <span id="displayedMapsSelection"></span>
-        <span id="map0Selection"></span>
-        <span id="map1Selection"></span>
-        <span id="map2Selection"></span>
-        <span id="map3Selection"></span>
-        <span id="map4Selection"></span>
-        <span id="map5Selection"></span>
-        <span id="map6Selection"></span>
-        <span id="map7Selection"></span>
-        <span id="map8Selection"></span>
-    </div></br>
-
-
+    <div class="flex-container">
+        <div class="flex-child">
+            <label for="CurrentPeriod">Current Period</label>
+            <select id="CurrentPeriod" onchange="mapPoolUpdate()">
+                <option value="1st">1st</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="OT">OT</option>
+            </select>
+        </div>
     </div>
+    <br>
+    <div class="flex-container">
+        <div class="smaller">
+            <label for="team1PP">Team 1 PP/OT</label>
+            <select id="team1PP" onchange="">
+                <option value="Inactive">Inactive</option>
+                <option value="Powerplay">Powerplay</option>
+                <option value="Timeout">Timeout</option>
+            </select>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="smaller">
+            <label for="team2PP">Team 2 PP/OT</label>
+            <select id="team2PP" onchange="">
+                <option value="Inactive">Inactive</option>
+                <option value="Powerplay">Powerplay</option>
+                <option value="Timeout">Timeout</option>
+            </select>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <button class="button" id="SendButton" onclick="sendTeamData()">Send Data</button>
+
 </body>
 
+<script>
+    //Look into how to grab the color from the color picker
 
+var team1 = "";
+var team2= "";
+
+
+
+    function teamInfoUpdate() {
+        var team1 = document.getElementById("team1Name").value;
+        var team1Score = document.getElementById("team1Score").value;
+        var team1SOG = document.getElementById("team1SOG").value;
+        var team1Color = document.getElementById("team1Color").value;
+        console.log(team1);
+
+
+        var team2 = document.getElementById("team2Name").value;
+        var team2Score = document.getElementById("team2Score").value;
+        var team2SOG = document.getElementById("team2SOG").value;
+        var team2Color = document.getElementById("team2Color").value;
+        console.log(team1, team1Score, team1SOG, team1Color);
+        console.log(team2, team2Score, team2SOG, team2Color);
+
+
+    }
+
+    function timeUpdate() {
+
+        var team1PP = document.getElementById('team1PP').selectedOptions[0].value;
+        var team2PP = document.getElementById('team2PP').selectedOptions[0].value;
+        console.log(team1PP, team2PP);
+
+    }
+
+
+
+    function sendTeamData() {
+
+
+
+        teamInfoUpdate();
+        timeUpdate();
+        console.log(team1);
+        var messageData = {
+            "Event": "UpdateData",
+            "Data": {
+                "Team1": team1,
+                "Team1Score": team1Score,
+                "Team1SOG": team1SOG,
+                "Team1Color": team1Color,
+                "Team2": team2,
+                "Team2Score": team2Score,
+                "Team2SOG": team2SOG,
+                "Team2Color": team2Color,
+            }
+
+        }
+
+
+
+
+
+
+
+        var messageString = JSON.stringify(messageData);
+
+        console.log(messageString);
+
+        sock.send(messageString);
+    }
+
+
+
+
+
+
+
+    function connect() {
+
+        sock = new WebSocket("ws://localhost:1337");
+        sock.onopen = function () {
+            console.log("Connected to HockeyHelper");
+        };
+
+        sock.onclose = function (e) {
+            console.log("Socket is closed. Reconnect attempt in 1 second");
+            setTimeout(function () {
+                connect();
+            }, 1000);
+        }
+
+        sock.onerror = function (err) {
+            console.log(err);
+            sock.close();
+        }
+        sock.onmessage = function (msg) {
+            let data = JSON.parse(msg.data);
+            console.log(data);
+
+            if (data.Event == "MatchData") {
+
+                //Pull data
+                Map0 = data.Data.Map0;
+
+
+            }
+        }
+    }
+
+
+
+
+
+    connect();
+</script>
 
 </html>
