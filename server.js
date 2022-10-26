@@ -24,20 +24,39 @@ server.on('connection', function (socket) {
 
         var P1ScoreSaber = '';
 
+        //yummy recieving data
+        if (data.Event == "TeamData") {
+            Team1 = data.Data.Team1;
+            Team2 = data.Data.Team2;
+            Team1Color = data.Data.Team1Color;
+            Team2Color = data.Data.Team2Color;
+            Team1Score = data.Data.Team1Score;
+            Team2Score = data.Data.Team2Score;
+            Team1SOG = data.Data.Team1SOG;
+            Team2SOG = data.Data.Team1SOG;
+            CurrentPeriod = data.Data.CurrentPeriod; //Will be pushed to TimeData event when setup
 
-        if (data.Event == "MatchData") {
-            P1ScoreSaber = data.Data.P1;
 
-            //do stuff with the data
+
+            //TimeData event sent from control panel page
+            //Powerplay can be either "Timeout", "Powerplay", "Inactive"
+            //Figure out how to send the length of the powerplay, possibly having a timer built into the control page that sends its own seperate event
+            //Time can maybe be calculated on the Controller page, using JS Date objects
+
+
+            //do stuff with the data and pull from APIs or something idk
 
             
                 
 
             //send out the parsed data
                 var messageData = {
-                    "Event": "StatsPage",
+                    "Event": "UpdateData",
                     "Data": {
-                        "P1Map0Score": P1Map0Score,
+                        "Team1": Team1,
+                        "Team2": Team2,
+                        "Team1Color": Team1Color,
+                        //etc
                        
             
             
@@ -65,7 +84,7 @@ server.on('connection', function (socket) {
         
 
 
-            }, 5000);
+            });
 
 
 
