@@ -354,38 +354,38 @@
 <p class="ShotsOnGoal">SOG</p>
 
 <!-- Team 1 Info-->
-<div class="Team1 Background">
+<div class="Team1 Background" id="team1Background">
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
     <div class="ThirdGradient"></div>
     <img class="Team1 Logo" src="Wildcat_Hockey_Blue.png" alt="Team 1 Logo">
-    <p class="Name">AZ</p>
-    <p class="Score">7</p>
-    <p class="SOG">13</p>
+    <p class="Name" id="team1NameDisplay">XXX</p>
+    <p class="Score" id="team1ScoreDisplay">99</p>
+    <p class="SOG" id="team1SOGDisplay">999</p>
 </div>
 
 <!--Team 1 PP/TO-->
-<div class="Team1PP Background">
-    <p class="PPText">POWERPLAY</p>
-    <p class="PPTime">0:00</p>
+<div class="Team1PP Background" id="team1PPBackground">
+    <p class="PPText" id="team1PPTextDisplay">POWERPLAY</p>
+    <p class="PPTime" id="team1PPTimeDisplay">0:00</p>
 </div>
 
 <!--Team 2 PP/TO-->
-<div class="Team2PP Background">
-    <p class="PPText">TIMEOUT</p>
-    <p class="PPTime">0:30</p>
+<div class="Team2PP Background" id="team2PPBackground">
+    <p class="PPText" id="team2PPTextDisplay">TIMEOUT</p>
+    <p class="PPTime" id="team2PPTimeDisplay">0:30</p>
 </div>
 
 
 <!--Team 2 Info-->
-<div class="Team2 Background">
+<div class="Team2 Background" id="team2Background">
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
     <div class="ThirdGradient"></div>
     <img class="Team2 Logo" alt="Team 2 Logo" src="Davenport_Panthers_logo.png">
-    <p class="Name">XXX</p>
-    <p class="Score">99</p>
-    <p class="SOG">999</p>
+    <p class="Name" id="team2NameDisplay">XXX</p>
+    <p class="Score" id="team2ScoreDisplay">99</p>
+    <p class="SOG" id="team2SOGDisplay">999</p>
 </div>
 
 <!--Time Info-->
@@ -425,21 +425,46 @@
             let data = JSON.parse(msg.data);
             console.log(data);
 
-            if (data.Event == "MatchData") {
-
+            if (data.Event == "UpdateData") {
                 //Pull data
                 Map0 = data.Data.Map0;
+                team1Name = data.Data.team1Name;
+                team1Score = data.Data.team1Score;
+                team1SOG = data.Data.team1SOG;
+                team1Color = data.Data.team1Color;
+                team2Name = data.Data.team2Name;
+                team2Score = data.Data.team2Score;
+                team2SOG = data.Data.team2SOG;
+                team2Color = data.Data.team2Color;
 
+                teamTextDeploy();
 
             }
         }
     }
 
-
-
-
-    
     connect();
+
+
+
+    function teamTextDeploy() {
+
+        //Setting Text
+        team1NameDisplay.innerText = team1Name;
+        team1ScoreDisplay.innerText = team1Score;
+        team1SOGDisplay.innerText = team1SOG;
+        team2NameDisplay.innerText = team2Name;
+        team2ScoreDisplay.innerText = team2Score;
+        team2SOGDisplay.innerText = team2SOG;
+
+        //Setting Color
+        document.getElementById("team1Background").style.background=[team1Color];
+        document.getElementById("team1PPBackground").style.background=[team1Color];
+
+        document.getElementById("team2Background").style.background=[team2Color];
+        document.getElementById("team2PPBackground").style.background=[team2Color];
+
+    }
 </script>
 
 

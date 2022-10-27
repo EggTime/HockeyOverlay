@@ -296,19 +296,19 @@ var team2= "";
 
 
     function teamInfoUpdate() {
-        var team1 = document.getElementById("team1Name").value;
+        var team1Name = document.getElementById("team1Name").value;
         var team1Score = document.getElementById("team1Score").value;
         var team1SOG = document.getElementById("team1SOG").value;
         var team1Color = document.getElementById("team1Color").value;
-        console.log(team1);
+        console.log(team1Name.value);
 
 
-        var team2 = document.getElementById("team2Name").value;
+        var team2Name = document.getElementById("team2Name").value;
         var team2Score = document.getElementById("team2Score").value;
         var team2SOG = document.getElementById("team2SOG").value;
         var team2Color = document.getElementById("team2Color").value;
-        console.log(team1, team1Score, team1SOG, team1Color);
-        console.log(team2, team2Score, team2SOG, team2Color);
+        console.log(team1Name, team1Score, team1SOG, team1Color);
+        console.log(team2Name, team2Score, team2SOG, team2Color);
 
 
     }
@@ -329,18 +329,20 @@ var team2= "";
 
         teamInfoUpdate();
         timeUpdate();
-        console.log(team1);
+        console.log(team1Name.value);
         var messageData = {
             "Event": "UpdateData",
             "Data": {
-                "Team1": team1,
-                "Team1Score": team1Score,
-                "Team1SOG": team1SOG,
-                "Team1Color": team1Color,
-                "Team2": team2,
-                "Team2Score": team2Score,
-                "Team2SOG": team2SOG,
-                "Team2Color": team2Color,
+                "team1Name": team1Name.value,
+                "team1Score": team1Score.value,
+                "team1SOG": team1SOG.value,
+                "team1Color": team1Color.value,
+                "team2Name": team2Name.value,
+                "team2Score": team2Score.value,
+                "team2SOG": team2SOG.value,
+                "team2Color": team2Color.value,
+
+                "team1PPStatus": team1PP.value,
             }
 
         }
