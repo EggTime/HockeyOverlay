@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         body {
             background-color: gray;
@@ -230,6 +231,7 @@
             font-size: 22px;
             line-height: 30px;
             align-items: left;
+            text-transform: uppercase;
 
             color: #FFFFFF;
 
@@ -347,6 +349,19 @@
 </head>
 
 
+<!--Team 1 PP/TO-->
+<div class="Team1PP Background" id="team1PPBackground">
+    <p class="PPText" id="team1PPTextDisplay">POWERPLAY</p>
+    <p class="PPTime" id="team1PPTimeDisplay">0:00</p>
+</div>
+
+<!--Team 2 PP/TO-->
+<div class="Team2PP Background" id="team2PPBackground">
+    <p class="PPText" id="team2PPTextDisplay">TIMEOUT</p>
+    <p class="PPTime" id="team2PPTimeDisplay">0:30</p>
+</div>
+
+
 <div class="Background Rectangle"></div>
 <div class="Background Line"></div>
 
@@ -364,17 +379,6 @@
     <p class="SOG" id="team1SOGDisplay">999</p>
 </div>
 
-<!--Team 1 PP/TO-->
-<div class="Team1PP Background" id="team1PPBackground">
-    <p class="PPText" id="team1PPTextDisplay">POWERPLAY</p>
-    <p class="PPTime" id="team1PPTimeDisplay">0:00</p>
-</div>
-
-<!--Team 2 PP/TO-->
-<div class="Team2PP Background" id="team2PPBackground">
-    <p class="PPText" id="team2PPTextDisplay">TIMEOUT</p>
-    <p class="PPTime" id="team2PPTimeDisplay">0:30</p>
-</div>
 
 
 <!--Team 2 Info-->
@@ -389,14 +393,17 @@
 </div>
 
 <!--Time Info-->
-<div class="Time Background"></div>
+<div class="Time Background" id="TimingInfo"></div>
 <div class="Time Line"></div>
-<p class="Time Period">2nd</p>
-<p class="Time Timer">19:59</p>
+<p class="Time Period" id="CurrentPeriod">2nd</p>
+<p class="Time Timer" id="MainTimer">19:59</p>
 
+<!--Shootout-->
+<div class="ShootOut Background" id="ShootoutInfo">
+    
 
-
-
+<!--Circle code is &#9679; -->
+</div>
 
 
 
@@ -437,6 +444,13 @@
                 team2SOG = data.Data.team2SOG;
                 team2Color = data.Data.team2Color;
 
+                //temp, will be sent in different event
+                team1PPStatus = data.Data.team1PPStatus;
+                team2PPStatus = data.Data.team2PPStatus;
+
+
+
+
                 teamTextDeploy();
 
             }
@@ -458,11 +472,44 @@
         team2SOGDisplay.innerText = team2SOG;
 
         //Setting Color
-        document.getElementById("team1Background").style.background=[team1Color];
-        document.getElementById("team1PPBackground").style.background=[team1Color];
+        document.getElementById("team1Background").style.background = [team1Color];
+        document.getElementById("team1PPBackground").style.background = [team1Color];
 
-        document.getElementById("team2Background").style.background=[team2Color];
-        document.getElementById("team2PPBackground").style.background=[team2Color];
+        document.getElementById("team2Background").style.background = [team2Color];
+        document.getElementById("team2PPBackground").style.background = [team2Color];
+
+        timingUpdate();
+    }
+
+    function timingUpdate() {
+
+        //Clear animation classes
+        document.getElementById("team1PPBackground").classList.remove('animate__animated', 'animate__slideInUp',
+            'animate__slideOutDown');
+        document.getElementById("team2PPBackground").classList.remove('animate__animated', 'animate__slideInDown',
+            'animate__slideOutUp');
+
+        //Check values and set the text (will have to figure out timer later)
+        if (team1PPStatus == 'Inactive') {
+
+            document.getElementById("team1PPBackground").classList.add('animate__animated', 'animate__slideOutDown');
+        } else {
+            document.getElementById("team1PPBackground").classList.add('animate__animated', 'animate__slideInUp');
+            team1PPTextDisplay.innerText = team1PPStatus;
+
+        }
+
+        if (team2PPStatus == 'Inactive') {
+
+            document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideOutUp');
+        } else {
+            document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideInDown');
+            team2PPTextDisplay.innerText = team2PPStatus;
+
+        }
+
+        //Timer?
+        
 
     }
 </script>

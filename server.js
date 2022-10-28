@@ -20,78 +20,75 @@ server.on('connection', function (socket) {
         sockets.forEach(s => s.send(dataString));
 
         // Set variables
+var mainTimerMinutes = '';
+var mainTimerSeconds = '';
+var mainTimerMiliseconds = ''; //Unsure if this is needed
 
+var team1PPTimerMinutes= '';
+var team2PPTimerSeconds= '';
 
-        var P1ScoreSaber = '';
 
         //yummy recieving data
-        if (data.Event == "TeamData") {
+        if (data.Event == "UpdateData") {
             Team1 = data.Data.Team1;
             Team2 = data.Data.Team2;
-            Team1Color = data.Data.Team1Color;
-            Team2Color = data.Data.Team2Color;
-            Team1Score = data.Data.Team1Score;
-            Team2Score = data.Data.Team2Score;
-            Team1SOG = data.Data.Team1SOG;
-            Team2SOG = data.Data.Team1SOG;
             CurrentPeriod = data.Data.CurrentPeriod; //Will be pushed to TimeData event when setup
 
 
 
-            //TimeData event sent from control panel page
-            //Powerplay can be either "Timeout", "Powerplay", "Inactive"
-            //Figure out how to send the length of the powerplay, possibly having a timer built into the control page that sends its own seperate event
-            //Time can maybe be calculated on the Controller page, using JS Date objects
-
-
+            
             //do stuff with the data and pull from APIs or something idk
 
-            
-                
+            //UpdateData is already being sent out from controller to scoring so this isn't really needed unless extra processing needs to be done
+
 
             //send out the parsed data
-                var messageData = {
-                    "Event": "UpdateData",
-                    "Data": {
-                        "Team1": Team1,
-                        "Team2": Team2,
-                        "Team1Color": Team1Color,
-                        //etc
-                       
-            
-            
-                    }
-            
-            
-            
-            
-            
+            var messageData = {
+                "Event": "UpdateData",
+                "Data": {
+                    "Team1": Team1,
+                    "Team2": Team2,
+                    //etc
+
+
+
                 }
-            
-            
-            
-                var messageString = JSON.stringify(messageData);
-            
-            
-                console.log(messageString);
-                sockets.forEach(s => s.send(messageString));
 
 
 
-            
+
 
             }
-        
-
-
-            });
 
 
 
+            var messageString = JSON.stringify(messageData);
+
+
+            console.log(messageString);
+            sockets.forEach(s => s.send(messageString));
+
+
+
+
+
+        }
+
+        //Timer runs here so instead of control panel, so nothing gets desynced.
+
+
+        var messageString = JSON.stringify(messageData);
+
+
+        console.log(messageString);
+        sockets.forEach(s => s.send(messageString));
 
     });
-   // socket.on('close', function () {
-   //     sockets = sockets.filter(s => s !== socket);
-   // 
-   // });
+
+
+});
+// socket.on('close', function () {
+//     sockets = sockets.filter(s => s !== socket);
+// 
+// });
 //
