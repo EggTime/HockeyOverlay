@@ -330,7 +330,10 @@ var team2= "";
         teamInfoUpdate();
         timeUpdate();
         console.log(team1Name.value);
+
+        //Compile variables to send
         var messageData = {
+            //UpdateData is also sent to scoring.html
             "Event": "UpdateData",
             "Data": {
                 "team1Name": team1Name.value,
@@ -343,6 +346,7 @@ var team2= "";
                 "team2Color": team2Color.value,
 
                 "team1PPStatus": team1PP.value,
+                "team2PPStatus": team2PP.value,
             }
 
         }
@@ -351,7 +355,7 @@ var team2= "";
 
 
 
-
+        //Send the
 
         var messageString = JSON.stringify(messageData);
 
