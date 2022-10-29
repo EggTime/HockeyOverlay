@@ -345,6 +345,42 @@
 
             color: #FFFFFF;
         }
+
+
+
+        .ShootOut.Banner {
+
+            position: absolute;
+            width: 256px;
+            height: 22px;
+            left: 61px;
+            top: 28px;
+
+            background: #3A3A3A;
+            border: 2px solid #000000;
+
+        }
+
+        .ShootOut.Text {
+
+            position: absolute;
+            width: 256px;
+            height: 22px;
+            left: 0px;
+            top: -26px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 30px;
+            align-items: center;
+            text-transform: uppercase;
+            text-align: center;
+
+            color: #FFFFFF;
+
+        }
     </style>
 </head>
 
@@ -373,7 +409,7 @@
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
     <div class="ThirdGradient"></div>
-    <img class="Team1 Logo" src="Wildcat_Hockey_Blue.png" alt="Team 1 Logo">
+    <img class="Team1 Logo" id="team1LogoDisplay" src="https://i.imgur.com/Fy5eWFM.png" alt="Team 1 Logo">
     <p class="Name" id="team1NameDisplay">XXX</p>
     <p class="Score" id="team1ScoreDisplay">99</p>
     <p class="SOG" id="team1SOGDisplay">999</p>
@@ -386,7 +422,8 @@
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
     <div class="ThirdGradient"></div>
-    <img class="Team2 Logo" alt="Team 2 Logo" src="Davenport_Panthers_logo.png">
+    <img class="Team2 Logo" id="team2LogoDisplay" alt="Team 2 Logo" src="https://i.imgur.com/gstBKAg.png">
+    <!--Have images uploaded on Imgur or another direct link-->
     <p class="Name" id="team2NameDisplay">XXX</p>
     <p class="Score" id="team2ScoreDisplay">99</p>
     <p class="SOG" id="team2SOGDisplay">999</p>
@@ -395,16 +432,21 @@
 <!--Time Info-->
 <div class="Time Background" id="TimingInfo"></div>
 <div class="Time Line"></div>
-<p class="Time Period" id="CurrentPeriod">2nd</p>
+<p class="Time Period" id="CurrentPeriodDisplay">2nd</p>
 <p class="Time Timer" id="MainTimer">19:59</p>
 
 <!--Shootout-->
 <div class="ShootOut Background" id="ShootoutInfo">
-    
 
-<!--Circle code is &#9679; -->
+
+    <!--Circle code is &#9679; -->
 </div>
 
+<div class="ShootOut Banner" id="ShootoutBanner">
+
+    <p class="ShootOut Text">Shootout</p>
+
+</div>
 
 
 
@@ -439,14 +481,23 @@
                 team1Score = data.Data.team1Score;
                 team1SOG = data.Data.team1SOG;
                 team1Color = data.Data.team1Color;
+                team1Logo = data.Data.team1Logo;
+
                 team2Name = data.Data.team2Name;
                 team2Score = data.Data.team2Score;
                 team2SOG = data.Data.team2SOG;
                 team2Color = data.Data.team2Color;
+                team2Logo = data.Data.team2Logo;
 
                 //temp, will be sent in different event
                 team1PPStatus = data.Data.team1PPStatus;
                 team2PPStatus = data.Data.team2PPStatus;
+                CurrentPeriod = data.Data.CurrentPeriod;
+
+                ShootOutActive = data.Data.ShootOutActive;
+                SOteam1One = data.Data.SOteam1One;
+                SOteam1Two = data.Data.SOteam1Two;
+                SOteam1Three = data.Data.SOteam1Three;
 
 
 
@@ -478,10 +529,20 @@
         document.getElementById("team2Background").style.background = [team2Color];
         document.getElementById("team2PPBackground").style.background = [team2Color];
 
+        //Setting Logo
+        document.getElementById('team1LogoDisplay').src = team1Logo;
+        document.getElementById('team2LogoDisplay').src = team2Logo;
+
+
+        //Shootout
+
+
         timingUpdate();
     }
 
     function timingUpdate() {
+
+        CurrentPeriodDisplay.innerText = CurrentPeriod;
 
         //Clear animation classes
         document.getElementById("team1PPBackground").classList.remove('animate__animated', 'animate__slideInUp',
@@ -509,9 +570,14 @@
         }
 
         //Timer?
-        
+
 
     }
+
+
+
+
+
 </script>
 
 

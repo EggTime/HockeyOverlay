@@ -83,7 +83,8 @@
     }
 
 
-    input[type=text] {
+    input[type=text],
+    input[type=url] {
 
         border: 3px solid #000;
         border-radius: 5px;
@@ -180,18 +181,18 @@
         display: flex;
     }
 
-    /* .flex-child {
-    flex: min-content;
-    border: 2px solid rgb(255, 255, 255); 
-    
-}  
-*/
+    .flex-child {
+        flex: min-content;
+        /*border: 2px solid rgb(255, 255, 255); */
+
+    }
+
     .flex-child:first-child {
-        margin-right: 30px;
+        margin-right: 00px;
     }
 
     .flex-child:second-child {
-        margin-right: 30px;
+        margin-right: 00px;
         flex-shrink: 2;
     }
 
@@ -208,40 +209,51 @@
     </div>
 
     <div class="flex-container">
-        <div class="team1 smaller" id="team1">
+        <div class="flex-child" id="team1">
             <label for="team1">Team 1</label>
             <input type="text" class="input" id="team1Name" value="AZ" maxlength="3" placeholder="Team 1 Initials">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team1Score">Team 1 Score</label>
             <input type="number" class="input" id="team1Score" value="0" min="0" max="99" step="1">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team1Score">Shots on Goal </label>
             <input type="number" class="input" id="team1SOG" value="0" min="0" max="999" step="1">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team1Score">Team 1 Color</label>
             <input type="color" value="#182857" id="team1Color" />
         </div>
+        <div class="flex-child">
+            <label for="team1Logo">Logo Image URL</label>
+            <input type="url" name="team1Logo" id="team1Logo" placeholder="https://i.imgur.com/Fy5eWFM.png"
+                pattern="https://.*" size="30" value="https://i.imgur.com/Fy5eWFM.png" required>
+        </div>
     </div>
+    <!--Have images uploaded on Imgur or another direct link-->
     <br>
     <div class="flex-container">
-        <div class="team2 smaller" id="team2">
+        <div class="flex-child" id="team2">
             <label for="team2">Team 2</label>
             <input type="text" class="input" id="team2Name" maxlength="3" placeholder="Team 2 Initials" value="XXX">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team1Score">Team 1 Score</label>
             <input type="number" class="input" id="team2Score" value="0" min="0" max="99" step="1">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team2SOG">Shots on Goal </label>
             <input type="number" class="input" id="team2SOG" value="0" min="0" max="999" step="1">
         </div>
-        <div class="smaller">
+        <div class="flex-child">
             <label for="team1Score">Team 2 Color</label>
             <input type="color" value="#D5160C" id="team2Color" />
+        </div>
+        <div class="flex-child">
+            <label for="team2Logo">Logo Image URL</label>
+            <input type="url" name="team2Logo" id="team2Logo" placeholder="https://i.imgur.com/gstBKAg.png"
+                pattern="https://.*" value="https://i.imgur.com/gstBKAg.png"size="30" required>
         </div>
     </div>
     <br>
@@ -251,7 +263,7 @@
     <div class="flex-container">
         <div class="flex-child">
             <label for="CurrentPeriod">Current Period</label>
-            <select id="CurrentPeriod" onchange="mapPoolUpdate()">
+            <select id="CurrentPeriod" onchange="">
                 <option value="1st">1st</option>
                 <option value="2nd">2nd</option>
                 <option value="3rd">3rd</option>
@@ -281,6 +293,32 @@
         </div>
     </div>
     <br>
+    <label for="chkBox">
+        <input type="checkbox" id="ShootOutActive" onclick="ShowHideDiv(this)" />
+        Shootout Active?
+    </label>
+    <div id="dvBox"style="display: none">
+        <table>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>T</th>
+            </tr>
+            <tr>
+        <td><input type="checkbox" id="SOteam1One"></td>
+            <td><input type="checkbox" id="SOteam1Two"></td>
+                <td><input type="checkbox" id="SOteam1Three"></td>
+                <td><input type="number" class="input" id="SOteam1Total" value="0" min="0" max="99" step="1"></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" id="SOteam2One"></td>
+            <td><input type="checkbox" id="SOteam2Two"></td>
+                <td><input type="checkbox" id="SOteam2Three"></td>
+                <td><input type="number" class="input" id="SOteam2Total" value="0" min="0" max="99" step="2"></td>
+    </tr>
+    </table>
+    </div>
     <br>
     <br>
     <button class="button" id="SendButton" onclick="sendTeamData()">Send Data</button>
@@ -290,8 +328,8 @@
 <script>
     //Look into how to grab the color from the color picker
 
-var team1 = "";
-var team2= "";
+    var team1 = "";
+    var team2 = "";
 
 
 
@@ -300,20 +338,38 @@ var team2= "";
         var team1Score = document.getElementById("team1Score").value;
         var team1SOG = document.getElementById("team1SOG").value;
         var team1Color = document.getElementById("team1Color").value;
-        console.log(team1Name.value);
+        var team1Logo = document.getElementById("team1Logo");
+        console.log(team1Logo);
 
 
         var team2Name = document.getElementById("team2Name").value;
         var team2Score = document.getElementById("team2Score").value;
         var team2SOG = document.getElementById("team2SOG").value;
         var team2Color = document.getElementById("team2Color").value;
+        var team2Logo = document.getElementById("team2Logo");
         console.log(team1Name, team1Score, team1SOG, team1Color);
         console.log(team2Name, team2Score, team2SOG, team2Color);
+
+        var ShootoutActive = document.getElementById("ShootOutActive");
+        
+        var SOteam1One = document.getElementById("SOteam1One");
+        var SOteam1Two = document.getElementById("SOteam1Two");
+        var SOteam1Three = document.getElementById("SOteam1Three");
+        var SOteam1Total = document.getElementById("SOteam1Total").value;
+
+        var SOteam2One = document.getElementById("SOteam2One");
+        var SOteam2Two = document.getElementById("SOteam2Two");
+        var SOteam2Three = document.getElementById("SOteam2Three");
+        var SOteam2Total = document.getElementById("SOteam2Total").value;
+
+        
 
 
     }
 
     function timeUpdate() {
+
+        var CurrentPeriod = document.getElementById('CurrentPeriod').selectedOptions[0].value;
 
         var team1PP = document.getElementById('team1PP').selectedOptions[0].value;
         var team2PP = document.getElementById('team2PP').selectedOptions[0].value;
@@ -329,7 +385,7 @@ var team2= "";
 
         teamInfoUpdate();
         timeUpdate();
-        console.log(team1Name.value);
+        console.log(ShootOutActive);
 
         //Compile variables to send
         var messageData = {
@@ -340,13 +396,29 @@ var team2= "";
                 "team1Score": team1Score.value,
                 "team1SOG": team1SOG.value,
                 "team1Color": team1Color.value,
+                "team1Logo": team1Logo.value,
+
                 "team2Name": team2Name.value,
                 "team2Score": team2Score.value,
                 "team2SOG": team2SOG.value,
                 "team2Color": team2Color.value,
+                "team2Logo": team2Logo.value,
 
                 "team1PPStatus": team1PP.value,
                 "team2PPStatus": team2PP.value,
+
+                "CurrentPeriod": CurrentPeriod.value,
+
+                "ShootOutActive": ShootOutActive.checked,
+                "SOteam1One": SOteam1One.checked,
+                "SOteam1Two": SOteam1Two.checked,
+                "SOteam1Three": SOteam1Three.checked,
+                "SOteam1Total": SOteam1Total.value,
+
+                "SOteam2One": SOteam1One.checked,
+                "SOteam2Two": SOteam2Two.checked,
+                "SOteam2Three": SOteam2Three.checked,
+                "SOteam2Total": SOteam2Total.value,
             }
 
         }
@@ -407,6 +479,12 @@ var team2= "";
 
 
     connect();
+
+
+    function ShowHideDiv(ShootOutActive) {
+        var dvBox = document.getElementById("dvBox");
+        dvBox.style.display = ShootOutActive.checked ? "block" : "none";
+    }
 </script>
 
 </html>
