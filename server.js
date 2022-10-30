@@ -44,7 +44,7 @@ var team2PPTimerSeconds= '';
 
             //send out the parsed data
             var messageData = {
-                "Event": "UpdateData",
+                "Event": "ParsedData",
                 "Data": {
                     "Team1": Team1,
                     "Team2": Team2,

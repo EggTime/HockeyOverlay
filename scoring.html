@@ -442,7 +442,7 @@
     <!--Circle code is &#9679; -->
 </div>
 
-<div class="ShootOut Banner" id="ShootoutBanner">
+<div class="ShootOut Banner" id="ShootoutBanner"style="display: none;">
 
     <p class="ShootOut Text">Shootout</p>
 
@@ -452,6 +452,8 @@
 
 
 <script>
+
+connect();
     function connect() {
 
         sock = new WebSocket("ws://localhost:1337");
@@ -508,7 +510,7 @@
         }
     }
 
-    connect();
+    
 
 
 
