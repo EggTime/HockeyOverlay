@@ -29,50 +29,51 @@ var team2PPTimerSeconds= '';
 
 
         //yummy recieving data
-        if (data.Event == "UpdateData") {
-            Team1 = data.Data.Team1;
-            Team2 = data.Data.Team2;
-            CurrentPeriod = data.Data.CurrentPeriod; //Will be pushed to TimeData event when setup
-
-
-
-            
-            //do stuff with the data and pull from APIs or something idk
-
-            //UpdateData is already being sent out from controller to scoring so this isn't really needed unless extra processing needs to be done
-
-
-            //send out the parsed data
-            var messageData = {
-                "Event": "ParsedData",
-                "Data": {
-                    "Team1": Team1,
-                    "Team2": Team2,
-                    //etc
-
-
-
-                }
-
-
-
-
-
-            }
-
-
-
-            var messageString = JSON.stringify(messageData);
-
-
-            console.log(messageString);
-            sockets.forEach(s => s.send(messageString));
-
-
-
-
-
-        }
+        //not needed since not pulling any data form api, but probably will need it once the timer is functioning
+//        if (data.Event == "UpdateData") {
+//            Team1 = data.Data.Team1;
+//            Team2 = data.Data.Team2;
+//            CurrentPeriod = data.Data.CurrentPeriod; //Will be pushed to TimeData event when setup
+//
+//
+//
+//            
+//            //do stuff with the data and pull from APIs or something idk
+//
+//            //UpdateData is already being sent out from controller to scoring so this isn't really needed unless extra processing needs to be done
+//
+//
+//            //send out the parsed data
+//            var messageData = {
+//                "Event": "ParsedData",
+//                "Data": {
+//                    "Team1": Team1,
+//                    "Team2": Team2,
+//                    //etc
+//
+//
+//
+//                }
+//
+//
+//
+//
+//
+//            }
+//
+//
+//
+//            var messageString = JSON.stringify(messageData);
+//
+//
+//            console.log(messageString);
+//            sockets.forEach(s => s.send(messageString));
+//
+//
+//
+//
+//
+//        }
 
         //Timer runs here so instead of control panel, so nothing gets desynced.
 

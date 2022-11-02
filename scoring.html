@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Hockey Scoring Overlay Page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap"
@@ -22,7 +23,7 @@
             height: 153px;
             left: 61px;
             top: 52px;
-            background: #ece8e8;
+            background: #000000;
             border: 2px solid #000000;
         }
 
@@ -34,7 +35,18 @@
             top: 129.76px;
 
             border: 1px solid #000000;
-            z-index: 2;
+            z-index: 1;
+        }
+
+        .Background.LineHard {
+            position: absolute;
+            width: 364px;
+            height: 0px;
+            left: 62px;
+            top: 129.76px;
+
+            border: 1px solid #000000;
+            z-index: 10;
         }
 
         .ShotsOnGoal {
@@ -74,6 +86,19 @@
             background: #182857;
         }
 
+        .Team1.BackgroundHard {
+            /* Team 2 Background */
+
+
+            position: absolute;
+            width: 364px;
+            height: 76px;
+            left: 63px;
+            top: 54px;
+
+            background: #182857;
+            z-index: 10;
+        }
 
 
         .Team1.Logo {
@@ -85,6 +110,7 @@
             object-fit: contain;
 
             background: url(Wildcat_Hockey_Blue.png);
+            z-index: 10;
         }
 
 
@@ -94,18 +120,20 @@
 
 
             position: absolute;
-            width: 140px;
+            width: 175px;
             height: 76px;
-            left: 104px;
-            bottom: -55px;
+            left: 82px;
+            top: 0px;
 
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 600;
             font-size: 64px;
-            line-height: 96px;
-            align-items: center;
+            line-height: 76px;
             text-align: center;
+            margin: 0px;
+            vertical-align: middle;
+            z-index: 10;
 
             color: #FFFFFF;
 
@@ -130,6 +158,7 @@
             text-align: center;
 
             color: #FFFFFF;
+            z-index: 10;
 
         }
 
@@ -171,6 +200,20 @@
             background: #D5160C;
         }
 
+        .Team2.BackgroundHard {
+            /* Team 2 Background */
+
+
+            position: absolute;
+            width: 364px;
+            height: 76px;
+            left: 63px;
+            top: 131px;
+
+            background: #D5160C;
+            z-index: 10;
+        }
+
         .Team2.Logo {
             /* Team 2 Logo */
 
@@ -183,6 +226,7 @@
             object-fit: contain;
 
             background: url(Davenport_Panthers_logo.png);
+            z-index: 10;
         }
 
         .Team1PP.Background {
@@ -261,19 +305,21 @@
 
         .TeamGradient {
             position: absolute;
-            width: 471px;
+            width: 364px;
             height: 76px;
 
             background: linear-gradient(89.94deg, rgba(0, 0, 0, 0.51) 0.06%, rgba(0, 0, 0, 0) 99.95%);
+            z-index: 10;
         }
 
         .SecondGradient {
             position: absolute;
-            width: 214px;
+            width: 107px;
             height: 76px;
             left: 257px;
 
             background: rgba(0, 0, 0, 0.42);
+            z-index: 10;
         }
 
         .ThirdGradient {
@@ -282,7 +328,17 @@
             height: 76px;
             left: 364px;
 
-            background: rgba(0, 0, 0, 0.42);
+            background: rgba(0, 0, 0, 0.60);
+        }
+
+        .Time.Box {
+            /*Gives some extra width so the animation will properly slide out all the way */
+            width: 150px;
+            left: 529px;
+            height: 153px;
+            top: 52px;
+            position: absolute;
+            /* border:#ffffff 2px solid; */
         }
 
         .Time.Background {
@@ -293,8 +349,8 @@
             position: absolute;
             width: 135px;
             height: 153px;
-            left: 544px;
-            top: 52px;
+            left: 15px;
+            top: 0px;
             background: #3A3A3A;
             border: 2px solid #000000;
         }
@@ -303,8 +359,8 @@
             position: absolute;
             width: 135px;
             height: 0px;
-            left: 544px;
-            top: 129.76px;
+            left: 0px;
+            top: 76.5px;
 
             border: 1px solid #000000;
             z-index: 2;
@@ -314,44 +370,46 @@
             position: absolute;
             width: 134px;
             height: 74px;
-            left: 546px;
-            top: 7px;
+            left: 0px;
+            top: 0px;
 
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 600;
             font-size: 48px;
-            line-height: 72px;
+            line-height: 74px;
             align-items: center;
             text-align: center;
             color: #FFFFFF;
             text-transform: uppercase;
+            margin: 0;
         }
 
         .Time.Timer {
             position: absolute;
             width: 134px;
             height: 76px;
-            left: 546px;
-            top: 85px;
+            left: 0px;
+            top: 76.5px;
 
             font-family: 'Poppins';
             font-style: normal;
             font-weight: 400;
             font-size: 48px;
-            line-height: 72px;
+            line-height: 76px;
             align-items: center;
             text-align: center;
+            margin: 0;
 
             color: #FFFFFF;
         }
 
 
 
-        .ShootOut.Banner {
+        .Shootout.Banner {
 
             position: absolute;
-            width: 256px;
+            width: 364px;
             height: 22px;
             left: 61px;
             top: 28px;
@@ -361,10 +419,10 @@
 
         }
 
-        .ShootOut.Text {
+        .Shootout.Text {
 
             position: absolute;
-            width: 256px;
+            width: 364px;
             height: 22px;
             left: 0px;
             top: -26px;
@@ -381,9 +439,101 @@
             color: #FFFFFF;
 
         }
+
+        .Shootout.Background {
+            position: absolute;
+            width: 300px;
+            height: 153px;
+            left: 427px;
+            top: 52px;
+
+            background: #3A3A3A;
+            border: 2px solid #000000;
+            z-index: 4;
+        }
+
+        .Shootout.ShotBanner {
+
+            position: absolute;
+            width: 300px;
+            height: 22px;
+            left: 427px;
+            top: 28px;
+
+            background: #3A3A3A;
+            border: 2px solid #000000;
+
+        }
+
+        .Shootout.Line {
+            position: absolute;
+            width: 0px;
+            height: 153px;
+            left: 75px;
+            top: 0px;
+
+            border: 1px solid #000000;
+        }
+
+        .Shootout.TextBox {
+
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            left: 0px;
+            top: 0px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 75px;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .Shootout.LabelBox {
+
+            position: absolute;
+            width: 75px;
+            height: 22px;
+            left: 0px;
+            top: 0px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 22px;
+            align-items: center;
+            text-align: center;
+
+            color: #FFFFFF;
+            margin: 0;
+        }
     </style>
 </head>
 
+<!--Time Info-->
+<div class="Time Box" id="TimingInfo">
+    <div class="Time Background">
+        <div class="Time Line"></div>
+        <p class="Time Period" id="CurrentPeriodDisplay">2nd</p>
+        <p class="Time Timer" id="MainTimer">19:59</p>
+    </div>
+</div>
+
+
+<!--Shootout Banner-->
+
+<div class="Shootout Banner" id="ShootoutBanner" style="display: none;">
+
+    <p class="Shootout Text">Shootout</p>
+
+</div>
 
 <!--Team 1 PP/TO-->
 <div class="Team1PP Background" id="team1PPBackground">
@@ -400,11 +550,12 @@
 
 <div class="Background Rectangle"></div>
 <div class="Background Line"></div>
+<div class="Background LineHard"></div>
 
-<div class="Team2 Background"></div>
-<p class="ShotsOnGoal">SOG</p>
+
 
 <!-- Team 1 Info-->
+<div class="Team1 BackgroundHard" id="team1BackgroundHard"></div>
 <div class="Team1 Background" id="team1Background">
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
@@ -418,6 +569,7 @@
 
 
 <!--Team 2 Info-->
+<div class="Team2 BackgroundHard" id="team2BackgroundHard"></div>
 <div class="Team2 Background" id="team2Background">
     <div class="TeamGradient"></div>
     <div class="SecondGradient"></div>
@@ -428,32 +580,52 @@
     <p class="Score" id="team2ScoreDisplay">99</p>
     <p class="SOG" id="team2SOGDisplay">999</p>
 </div>
+<p class="ShotsOnGoal">SOG</p>
 
-<!--Time Info-->
-<div class="Time Background" id="TimingInfo"></div>
-<div class="Time Line"></div>
-<p class="Time Period" id="CurrentPeriodDisplay">2nd</p>
-<p class="Time Timer" id="MainTimer">19:59</p>
 
 <!--Shootout-->
-<div class="ShootOut Background" id="ShootoutInfo">
+<div class="Shootout ShotBanner" id="ShootoutShotBanner" style="display: none;">
+    <p class="Shootout LabelBox" id="SOLabelOne">1</p>
+    <div class="Shootout Line" style="left: 75px; height:22px"></div>
+    <p class="Shootout LabelBox" style="left: 75px;" id="SOLabelTwo">2</p>
+    <div class="Shootout Line" style="left: 150px; height:22px"></div>
+    <p class="Shootout LabelBox" style="left: 150px;" id="SOLabelThree">3</p>
+    <div class="Shootout Line" style="left: 225px; height:22px"></div>
+    <p class="Shootout LabelBox" style="left: 225px; color: #FAFF00;">T</p>
+
+</div>
+<div class="Shootout Background" id="ShootoutInfo" style="display: none;">
+    <p class="Shootout TextBox" id="SOteam1OneDisplay">X</p>
+    <p class="Shootout TextBox" id="SOteam2OneDisplay" style="top: 78px;">X</p>
+    <div class="Shootout Line" style="left: 75px;"></div>
+    <p class="Shootout TextBox" id="SOteam1TwoDisplay" style="left: 75px;">X</p>
+    <p class="Shootout TextBox" id="SOteam2TwoDisplay" style="left: 75px; top: 78px;">X</p>
+
+
+    <div class="Shootout Line" style="left: 150px;"></div>
+    <p class="Shootout TextBox" id="SOteam1ThreeDisplay" style="left: 150px;">X</p>
+    <p class="Shootout TextBox" id="SOteam2ThreeDisplay" style="left: 150px; top: 78px;">X</p>
+
+    <div class="Shootout Line" style="left: 225px;"></div>
+    <p class="Shootout TextBox" id="SOteam1TotalDisplay" style="left: 225px; color: #FAFF00;">0</p>
+    <p class="Shootout TextBox" id="SOteam2TotalDisplay" style="left: 225px; top: 78px; color: #FAFF00;">0</p>
+
+
+    <div class="Time Line" style="width: 300px"></div>
+
 
 
     <!--Circle code is &#9679; -->
 </div>
 
-<div class="ShootOut Banner" id="ShootoutBanner"style="display: none;">
 
-    <p class="ShootOut Text">Shootout</p>
-
-</div>
 
 
 
 
 <script>
+    connect();
 
-connect();
     function connect() {
 
         sock = new WebSocket("ws://localhost:1337");
@@ -496,10 +668,14 @@ connect();
                 team2PPStatus = data.Data.team2PPStatus;
                 CurrentPeriod = data.Data.CurrentPeriod;
 
-                ShootOutActive = data.Data.ShootOutActive;
+                ShootoutActive = data.Data.ShootoutActive;
                 SOteam1One = data.Data.SOteam1One;
                 SOteam1Two = data.Data.SOteam1Two;
                 SOteam1Three = data.Data.SOteam1Three;
+
+                SOteam2One = data.Data.SOteam2One;
+                SOteam2Two = data.Data.SOteam2Two;
+                SOteam2Three = data.Data.SOteam2Three;
 
 
 
@@ -510,7 +686,7 @@ connect();
         }
     }
 
-    
+
 
 
 
@@ -524,11 +700,29 @@ connect();
         team2ScoreDisplay.innerText = team2Score;
         team2SOGDisplay.innerText = team2SOG;
 
+        //If theres 4 characters in team name, set font smaller
+        console.log(team1Name.length);
+        if (team1Name.length == 4) {
+            document.getElementById('team1NameDisplay').style.fontSize = "60px";
+        } else {
+            document.getElementById('team1NameDisplay').style.fontSize = "64px"
+        }
+
+        if (team2Name.length == 4) {
+            document.getElementById('team2NameDisplay').style.fontSize = "60px";
+        } else {
+            document.getElementById('team2NameDisplay').style.fontSize = "64px"
+        }
+
+
+
         //Setting Color
         document.getElementById("team1Background").style.background = [team1Color];
+        document.getElementById("team1BackgroundHard").style.background = [team1Color];
         document.getElementById("team1PPBackground").style.background = [team1Color];
 
         document.getElementById("team2Background").style.background = [team2Color];
+        document.getElementById("team2BackgroundHard").style.background = [team2Color];
         document.getElementById("team2PPBackground").style.background = [team2Color];
 
         //Setting Logo
@@ -546,40 +740,224 @@ connect();
 
         CurrentPeriodDisplay.innerText = CurrentPeriod;
 
-        //Clear animation classes
-        document.getElementById("team1PPBackground").classList.remove('animate__animated', 'animate__slideInUp',
-            'animate__slideOutDown');
-        document.getElementById("team2PPBackground").classList.remove('animate__animated', 'animate__slideInDown',
-            'animate__slideOutUp');
+        function powerPlayCheck() {
+            //Function for hiding and showing powerplays, so it can be reused
+            //Clear animation classes
+            document.getElementById("team1PPBackground").classList.remove('animate__animated', 'animate__slideInUp',
+                'animate__slideOutDown');
+            document.getElementById("team2PPBackground").classList.remove('animate__animated', 'animate__slideInDown',
+                'animate__slideOutUp');
 
-        //Check values and set the text (will have to figure out timer later)
-        if (team1PPStatus == 'Inactive') {
+            //Check values and set the text (will have to figure out timer later)
+            if (team1PPStatus == 'Inactive') {
 
-            document.getElementById("team1PPBackground").classList.add('animate__animated', 'animate__slideOutDown');
+                document.getElementById("team1PPBackground").classList.add('animate__animated',
+                    'animate__slideOutDown');
+            } else {
+                document.getElementById("team1PPBackground").classList.add('animate__animated', 'animate__slideInUp');
+                team1PPTextDisplay.innerText = team1PPStatus;
+
+            }
+
+            if (team2PPStatus == 'Inactive') {
+
+                document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideOutUp');
+            } else {
+                document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideInDown');
+                team2PPTextDisplay.innerText = team2PPStatus;
+
+            }
+        }
+        powerPlayCheck();
+        //Shootout
+
+
+
+        if (ShootoutActive == true) {
+            //Slide out timing info
+            document.getElementById("TimingInfo").classList.add('animate__animated', 'animate__slideOutLeft');
+            //Hide Powerplays
+            team1PPStatus = 'Inactive';
+            team2PPStatus = 'Inactive';
+            powerPlayCheck();
+
+
+
+
+            //Fill in text
+            //Shoutout Text Boxes
+
+            //Team 1 Box 1
+            if (SOteam1One == "NA") {
+                SOteam1OneDisplay.innerHTML = " ";
+            } else if (SOteam1One == "Goal") {
+                SOteam1OneDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam1OneDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1OneDisplay').style.color = '#FAFF00';
+            } else if (SOteam1One == "Miss") {
+                SOteam1OneDisplay.innerHTML = "X";
+                document.getElementById("SOteam1OneDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1OneDisplay').style.color = 'white';
+            }
+            //Team 1 Box 2
+            if (SOteam1Two == "NA") {
+                SOteam1TwoDisplay.innerHTML = " ";
+            } else if (SOteam1Two == "Goal") {
+                SOteam1TwoDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam1TwoDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1TwoDisplay').style.color = '#FAFF00';
+            } else if (SOteam1Two == "Miss") {
+                SOteam1TwoDisplay.innerHTML = "X";
+                document.getElementById("SOteam1TwoDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1TwoDisplay').style.color = 'white';
+            }
+            //Team 1 Box 3
+            if (SOteam1Three == "NA") {
+                SOteam1ThreeDisplay.innerHTML = " ";
+            } else if (SOteam1Three == "Goal") {
+                SOteam1ThreeDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam1ThreeDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1ThreeDisplay').style.color = '#FAFF00';
+            } else if (SOteam1Three == "Miss") {
+                SOteam1ThreeDisplay.innerHTML = "X";
+                document.getElementById("SOteam1ThreeDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam1ThreeDisplay').style.color = 'white';
+            }
+
+
+            //Team 2 Box 2
+            if (SOteam2One == "NA") {
+                SOteam2OneDisplay.innerHTML = " ";
+            } else if (SOteam2One == "Goal") {
+                SOteam2OneDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam2OneDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2OneDisplay').style.color = '#FAFF00';
+            } else if (SOteam2One == "Miss") {
+                SOteam2OneDisplay.innerHTML = "X";
+                document.getElementById("SOteam2OneDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2OneDisplay').style.color = 'white';
+            }
+            //Team 2 Box 2
+            if (SOteam2Two == "NA") {
+                SOteam2TwoDisplay.innerHTML = " ";
+            } else if (SOteam2Two == "Goal") {
+                SOteam2TwoDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam2TwoDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2TwoDisplay').style.color = '#FAFF00';
+            } else if (SOteam2Two == "Miss") {
+                SOteam2TwoDisplay.innerHTML = "X";
+                document.getElementById("SOteam2TwoDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2TwoDisplay').style.color = 'white';
+            }
+            //Team 2 Box 3
+            if (SOteam2Three == "NA") {
+                SOteam2ThreeDisplay.innerHTML = " ";
+            } else if (SOteam2Three == "Goal") {
+                SOteam2ThreeDisplay.innerHTML = "&#9679;";
+                document.getElementById("SOteam2ThreeDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2ThreeDisplay').style.color = '#FAFF00';
+            } else if (SOteam2Three == "Miss") {
+                SOteam2ThreeDisplay.innerHTML = "X";
+                document.getElementById("SOteam2ThreeDisplay").classList.add('animate__animated', 'animate__flipInX');
+                document.getElementById('SOteam2ThreeDisplay').style.color = 'white';
+            }
+
+
+
+
+
+
+
+
+
+            //Shootout graphic animations
+            //Wait 1 second for the other animations to clear out
+            setTimeout(function () {
+
+                //Clear previous animations
+                document.getElementById("ShootoutInfo").classList.remove('animate__animated',
+                    'animate__slideInLeft',
+                    'animate__slideOutLeft');
+                document.getElementById("ShootoutBanner").classList.remove('animate__animated',
+                    'animate__slideInUp',
+                    'animate__slideOutDown');
+
+
+
+
+
+                document.getElementById("ShootoutBanner").style.display = null;
+                document.getElementById("ShootoutBanner").classList.add('animate__animated',
+                    'animate__slideInUp');
+
+                document.getElementById("ShootoutInfo").style.display = null;
+                document.getElementById("ShootoutInfo").classList.add('animate__animated',
+                    'animate__slideInLeft');
+
+                setTimeout(function () {
+                    document.getElementById("ShootoutShotBanner").classList.remove('animate__animated',
+                        'animate__slideInUp',
+                        'animate__slideOutDown');
+
+                    document.getElementById("ShootoutShotBanner").style.display = null;
+                    document.getElementById("ShootoutShotBanner").classList.add('animate__animated',
+                        'animate__slideInUp');
+                    //Shot banner delay
+                }, 1000);
+                //Main Delay
+            }, 1000);
+
+
+
+
+
+            //Remove shootout
         } else {
-            document.getElementById("team1PPBackground").classList.add('animate__animated', 'animate__slideInUp');
-            team1PPTextDisplay.innerText = team1PPStatus;
+            setTimeout(function () {
+                setTimeout(function () {
+                    document.getElementById("ShootoutInfo").classList.add('animate__animated',
+                        'animate__slideOutLeft');
 
+                    document.getElementById("ShootoutBanner").classList.add('animate__animated',
+                        'animate__slideOutDown');
+
+                }, 1000);
+
+
+
+                document.getElementById("ShootoutShotBanner").classList.add('animate__animated',
+                    'animate__slideOutDown');
+
+                document.getElementById("SOteam1OneDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+                document.getElementById("SOteam1TwoDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+                document.getElementById("SOteam1ThreeDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+
+                document.getElementById("SOteam2OneDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+                document.getElementById("SOteam2TwoDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+                document.getElementById("SOteam2ThreeDisplay").classList.remove('animate__animated',
+                    'animate__flipInX');
+
+
+                document.getElementById("TimingInfo").classList.remove('animate__animated',
+                    'animate__slideOutLeft');
+            }, 1000);
         }
 
-        if (team2PPStatus == 'Inactive') {
 
-            document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideOutUp');
-        } else {
-            document.getElementById("team2PPBackground").classList.add('animate__animated', 'animate__slideInDown');
-            team2PPTextDisplay.innerText = team2PPStatus;
 
-        }
+
+
+
 
         //Timer?
 
 
     }
-
-
-
-
-
 </script>
 
 

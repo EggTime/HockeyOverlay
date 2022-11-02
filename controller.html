@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<!--Developed by Justin M. aka Egg Time
+Reach out to him if you have any questions-->
 <head>
-
+<title>Hockey Controller Page</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
 
@@ -211,7 +212,7 @@
     <div class="flex-container">
         <div class="flex-child" id="team1">
             <label for="team1">Team 1</label>
-            <input type="text" class="input" id="team1Name" value="AZ" maxlength="3" placeholder="Team 1 Initials">
+            <input type="text" class="input" id="team1Name" value="AZ" maxlength="4" placeholder="Team 1 Initials">
         </div>
         <div class="flex-child">
             <label for="team1Score">Team 1 Score</label>
@@ -236,7 +237,7 @@
     <div class="flex-container">
         <div class="flex-child" id="team2">
             <label for="team2">Team 2</label>
-            <input type="text" class="input" id="team2Name" maxlength="3" placeholder="Team 2 Initials" value="XXX">
+            <input type="text" class="input" id="team2Name" maxlength="4" placeholder="Team 2 Initials" value="XXXX">
         </div>
         <div class="flex-child">
             <label for="team1Score">Team 1 Score</label>
@@ -294,7 +295,7 @@
     </div>
     <br>
     <label for="chkBox">
-        <input type="checkbox" id="ShootOutActive" onclick="ShowHideDiv(this)" />
+        <input type="checkbox" id="ShootoutActive" onclick="ShowHideDiv(this)" />
         Shootout Active?
     </label>
     <div id="dvBox"style="display: none">
@@ -306,15 +307,54 @@
                 <th>T</th>
             </tr>
             <tr>
-        <td><input type="checkbox" id="SOteam1One"></td>
-            <td><input type="checkbox" id="SOteam1Two"></td>
-                <td><input type="checkbox" id="SOteam1Three"></td>
+        <td> <select id="SOteam1One" onchange="">
+            <option value="NA">N/A</option>
+            <option value="Miss">X</option>
+            <option value="Goal">&#9679;</option>
+        </select>
+        
+        </td>
+            <td><select id="SOteam1Two" onchange="">
+                <option value="NA">N/A</option>
+                <option value="Miss">X</option>
+                <option value="Goal">&#9679;</option>
+            </select>
+            
+            </td>
+                <td><select id="SOteam1Three" onchange="">
+                    <option value="NA">N/A</option>
+                    <option value="Miss">X</option>
+                    <option value="Goal">&#9679;</option>
+                </select>
+
+                
+                </td>
+
                 <td><input type="number" class="input" id="SOteam1Total" value="0" min="0" max="99" step="1"></td>
     </tr>
     <tr>
-        <td><input type="checkbox" id="SOteam2One"></td>
-            <td><input type="checkbox" id="SOteam2Two"></td>
-                <td><input type="checkbox" id="SOteam2Three"></td>
+        <td> <select id="SOteam2One" onchange="">
+            <option value="NA">N/A</option>
+            <option value="Miss">X</option>
+            <option value="Goal">&#9679;</option>
+        </select>
+        
+        </td>
+            <td><select id="SOteam2Two" onchange="">
+                <option value="NA">N/A</option>
+                <option value="Miss">X</option>
+                <option value="Goal">&#9679;</option>
+            </select>
+            
+            </td>
+                <td><select id="SOteam2Three" onchange="">
+                    <option value="NA">N/A</option>
+                    <option value="Miss">X</option>
+                    <option value="Goal">&#9679;</option>
+                </select>
+
+                
+                </td>
                 <td><input type="number" class="input" id="SOteam2Total" value="0" min="0" max="99" step="2"></td>
     </tr>
     </table>
@@ -350,16 +390,16 @@
         console.log(team1Name, team1Score, team1SOG, team1Color);
         console.log(team2Name, team2Score, team2SOG, team2Color);
 
-        var ShootoutActive = document.getElementById("ShootOutActive");
+        var ShootoutActive = document.getElementById("ShootoutActive");
         
-        var SOteam1One = document.getElementById("SOteam1One");
-        var SOteam1Two = document.getElementById("SOteam1Two");
-        var SOteam1Three = document.getElementById("SOteam1Three");
+        var SOteam1One = document.getElementById("SOteam1One").selectedOptions[0].value;
+        var SOteam1Two = document.getElementById("SOteam1Two").selectedOptions[0].value;
+        var SOteam1Three = document.getElementById("SOteam1Three").selectedOptions[0].value;
         var SOteam1Total = document.getElementById("SOteam1Total").value;
 
-        var SOteam2One = document.getElementById("SOteam2One");
-        var SOteam2Two = document.getElementById("SOteam2Two");
-        var SOteam2Three = document.getElementById("SOteam2Three");
+        var SOteam2One = document.getElementById("SOteam2One").selectedOptions[0].value;
+        var SOteam2Two = document.getElementById("SOteam2Two").selectedOptions[0].value;
+        var SOteam2Three = document.getElementById("SOteam2Three").selectedOptions[0].value;
         var SOteam2Total = document.getElementById("SOteam2Total").value;
 
         
@@ -385,7 +425,7 @@
 
         teamInfoUpdate();
         timeUpdate();
-        console.log(ShootOutActive);
+        console.log(ShootoutActive.checked);
 
         //Compile variables to send
         var messageData = {
@@ -409,15 +449,15 @@
 
                 "CurrentPeriod": CurrentPeriod.value,
 
-                "ShootOutActive": ShootOutActive.checked,
-                "SOteam1One": SOteam1One.checked,
-                "SOteam1Two": SOteam1Two.checked,
-                "SOteam1Three": SOteam1Three.checked,
+                "ShootoutActive": ShootoutActive.checked,
+                "SOteam1One": SOteam1One.value,
+                "SOteam1Two": SOteam1Two.value,
+                "SOteam1Three": SOteam1Three.value,
                 "SOteam1Total": SOteam1Total.value,
 
-                "SOteam2One": SOteam1One.checked,
-                "SOteam2Two": SOteam2Two.checked,
-                "SOteam2Three": SOteam2Three.checked,
+                "SOteam2One": SOteam2One.value,
+                "SOteam2Two": SOteam2Two.value,
+                "SOteam2Three": SOteam2Three.value,
                 "SOteam2Total": SOteam2Total.value,
             }
 
@@ -481,9 +521,9 @@
     connect();
 
 
-    function ShowHideDiv(ShootOutActive) {
+    function ShowHideDiv(ShootoutActive) {
         var dvBox = document.getElementById("dvBox");
-        dvBox.style.display = ShootOutActive.checked ? "block" : "none";
+        dvBox.style.display = ShootoutActive.checked ? "block" : "none";
     }
 </script>
 
