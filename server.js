@@ -78,11 +78,11 @@ var team2PPTimerSeconds= '';
         //Timer runs here so instead of control panel, so nothing gets desynced.
 
 
-        var messageString = JSON.stringify(messageData);
-
-
-        console.log(messageString);
-        sockets.forEach(s => s.send(messageString));
+//       var messageString = JSON.stringify(messageData);
+//
+//
+//       console.log(messageString);
+//       sockets.forEach(s => s.send(messageString));
 
     });
 
